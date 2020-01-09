@@ -1,0 +1,147 @@
+{% extends "base.html" %} {% block content %}
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+      <ul class="d-flex flex-wrap justify-content-center">
+        {% for letter in guessed_word %}
+          <li class="list-group-item list-group-item-info"><b>{{ letter }}</b></li>
+        {% endfor %}  
+      </ul>
+      {% if secret_word.img is not none %}
+        <img class="card-img-bottom w-25 mt-2 rounded mx-auto d-block" src="{{ secret_word.img }}">
+      {% else %}
+        <p class="card-text pt-3 d-flex justify-content-center">{{ secret_word.description }}</p>
+      {% endif %}  
+    </div>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{ losing_progress }}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+</div>
+<div class="btn-group-wrap text-center">
+  <div class="btn-group btn-group-lg mt-2" role="group" aria-label="First group">
+    {% for letter in letters[0] %}
+      {% if loop.index == 1 %}
+        {% if letter.endswith('1') %}
+          <button type="button" class="btn btn-success" disabled>{{ letter[0] }}</button>
+        {% elif letter.endswith('0') %}
+          <button type="button" class="btn btn-danger" disabled>{{ letter[0] }}</button> 
+        {% else %}  
+          <button type="button" class="btn btn-outline-dark">{{ letter[0] }}</button>
+        {% endif %}
+      {% else %}
+        {% if letter.endswith('1') %}
+          <button type="button" class="btn btn-success ml-2" disabled>{{ letter[0] }}</button>
+        {% elif letter.endswith('0') %}
+          <button type="button" class="btn btn-danger ml-2" disabled>{{ letter[0] }}</button> 
+        {% else %}  
+          <button type="button" class="btn btn-outline-dark ml-2">{{ letter[0] }}</button>
+        {% endif %}  
+      {% endif %}
+    {% endfor %}    
+  </div>
+  <div class="btn-group btn-group-lg mt-2 d-block" role="group" aria-label="Second group">
+    {% for letter in letters[1] %}
+      {% if loop.index == 1 %}
+        {% if letter.endswith('1') %}
+          <button type="button" class="btn btn-success ml-3" disabled>{{ letter[0] }}</button>
+        {% elif letter.endswith('0') %}
+          <button type="button" class="btn btn-danger ml-3" disabled>{{ letter[0] }}</button> 
+        {% else %}  
+          <button type="button" class="btn btn-outline-dark ml-3">{{ letter[0] }}</button>
+        {% endif %}
+      {% else %}
+        {% if letter.endswith('1') %}
+          <button type="button" class="btn btn-success ml-2" disabled>{{ letter[0] }}</button>
+        {% elif letter.endswith('0') %}
+          <button type="button" class="btn btn-danger ml-2" disabled>{{ letter[0] }}</button> 
+        {% else %}  
+          <button type="button" class="btn btn-outline-dark ml-2">{{ letter[0] }}</button>
+        {% endif %}  
+      {% endif %}
+    {% endfor %}  
+  </div>
+  <div class="btn-group btn-group-lg mt-2" role="group" aria-label="Third group">
+    {% for letter in letters[2] %}
+      {% if loop.index == 1 %}
+        {% if letter.endswith('1') %}
+          <button type="button" class="btn btn-success ml-4" disabled>{{ letter[0] }}</button>
+        {% elif letter.endswith('0') %}
+          <button type="button" class="btn btn-danger ml-4" disabled>{{ letter[0] }}</button> 
+        {% else %}  
+          <button type="button" class="btn btn-outline-dark ml-4">{{ letter[0] }}</button>
+        {% endif %}
+      {% else %}
+        {% if letter.endswith('1') %}
+          <button type="button" class="btn btn-success ml-2" disabled>{{ letter[0] }}</button>
+        {% elif letter.endswith('0') %}
+          <button type="button" class="btn btn-danger ml-2" disabled>{{ letter[0] }}</button> 
+        {% else %}  
+          <button type="button" class="btn btn-outline-dark ml-2">{{ letter[0] }}</button>
+        {% endif %}  
+      {% endif %}
+    {% endfor %} 
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">You Win!</h5>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+        You've got 1 point!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning d-flex justify-content-start" data-dismiss="modal" onclick="location.href='/'">Go home</button>
+        <button type="button" class="btn btn-success d-flex justify-content-end" onclick="location.href='/game'">Play again!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdropLOSE" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">You Lose!</h5>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+        You are loser!!!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="location.href='/'">Go home</button>
+        <button type="button" class="btn btn-success" onclick="location.href='/game'">Play again!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  addtoev = () => {
+      $(".btn-group-wrap").find('button').click((bt) => {
+      let guessedLetter = bt.target.innerHTML
+      location.href="/game/letter/" + guessedLetter;
+    });
+  }
+
+  isOver = () => {
+    let isGaming = '{{ is_gaming }}';
+    return isGaming == 'False';
+  }
+
+  window.addEventListener("load", () => {
+    addtoev();
+    if (isOver()){ 
+      let losing_progress = '{{ losing_progress }}';
+      console.log(losing_progress);
+      if (losing_progress < 100){
+         $('#staticBackdrop').modal('toggle');
+      }
+      else {
+        $('#staticBackdropLOSE').modal('toggle');
+      }
+    }
+  });
+</script>
+{% endblock %}

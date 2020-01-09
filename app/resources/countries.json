@@ -1,0 +1,24 @@
+{
+    "countries" :[
+        {
+            "word": "united states",
+            "img": "http://www.flags.net/images/largeflags/UNST0001.GIF"
+        },
+        {
+            "word": "australia",
+            "img": "http://www.flags.net/images/largeflags/ASTL0001.GIF"
+        },
+        {
+            "word": "bulgaria",
+            "img": "http://www.flags.net/images/largeflags/BULG0001.GIF"
+        },
+        {
+            "word": "brazil",
+            "img": "http://www.flags.net/images/largeflags/BRAZ0001.GIF"
+        },
+        {
+            "word": "czech republic",
+            "img": "http://www.flags.net/images/largeflags/CZEC0001.GIF"
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+web: flask db init; flask db migrate -m "users table"; flask db migrate -m "words table";flask db upgrade; gunicorn hangman:app

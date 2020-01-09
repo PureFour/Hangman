@@ -1,0 +1,1 @@
+docker run --name hangman -p 5000:5000 --rm hangman:latest

@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<h1 style="text-align: center; padding-top: 2%;">Select Category</h1>
+  <div class="card-deck">
+    <div class="card" onclick="location.href='/game/animals';" style="cursor: pointer;">
+      <img src="../static/img/animals-category-icon.png" class="card-img-top" alt="animals-category-icon"> 
+      <div class="card-body" >
+        <h3 class="card-title text-center">Animals</h3>
+      </div>
+    </div>
+    <div class="card" onclick="location.href='/game/sport';" style="cursor: pointer;">
+      <img src="../static/img/sports-category-icon.png" class="card-img-top" alt="sports-category-icon">
+      <div class="card-body">
+        <h3 class="card-title text-center">Sport</h3>
+      </div>
+    </div>
+    <div class="card" onclick="location.href='/game/countries';" style="cursor: pointer;">
+      <img src="../static/img/countries-category-icon.png" class="card-img-top" alt="countries-category-icon">
+      <div class="card-body">
+        <h3 class="card-title text-center">Countries</h3>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> 
+{% endblock %}

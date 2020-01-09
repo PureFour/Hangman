@@ -1,0 +1,48 @@
+{
+    "animals" :[
+        {
+            "word": "bear",
+            "description": "a large, heavy, mammal that walks on the soles of its feet, with thick fur and a very short tail"
+        },
+        {
+            "word": "cat",
+            "description": "a small animal with fur, four legs, a tail, and claws, usually kept as a pet or for catching mice"
+        },
+        {
+            "word": "dog",
+            "description": "a common animal with four legs, especially kept by people as a pet or to hunt or guard things"
+        },
+        {
+            "word": "panda",
+            "description": "a large, black and white mammal that lives in forests in China"
+        },
+        {
+            "word": "sheep",
+            "description": "a farm animal with thick wool that eats grass and is kept for its wool, skin, and meat"
+        },
+        {
+            "word": "chicken",
+            "description": "a type of bird kept on a farm for its eggs or its meat, or the meat of this bird that is cooked and eaten"
+        },
+        {
+            "word": "eagle",
+            "description": "a large, strong bird with a curved beak that eats meat and can see very well"
+        },
+        {
+            "word": "parrot",
+            "description": "a tropical bird with a curved beak, often kept as a pet and trained to copy the human voice"
+        },
+        {
+            "word": "piranha",
+            "description": "a dangerous fish that lives in South American rivers, has sharp teeth and eats meat"
+        },
+        {
+            "word": "salmon",
+            "description": "medium-sized silver-coloured fish that lives in the sea or rivers and swims up rivers to produce its eggs. Its pink flesh is eaten as a food"
+        },
+        {
+            "word": "swordfish",
+            "description": "a large, long fish that is often eaten as food, with a very long pointed part like a beak at the front of its head"
+        }
+    ]
+}
