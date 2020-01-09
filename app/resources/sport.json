@@ -1,0 +1,20 @@
+{
+    "animals" :[
+        {
+            "word": "bear",
+            "description": "a large, heavy, mammal that walks on the soles of its feet, with thick fur and a very short tail"
+        },
+        {
+            "word": "cat",
+            "description": "a small animal with fur, four legs, a tail, and claws, usually kept as a pet or for catching mice"
+        },
+        {
+            "word": "dog",
+            "description": "a common animal with four legs, especially kept by people as a pet or to hunt or guard things"
+        },
+        {
+            "word": "dolphin",
+            "description": "a sea mammal that is large, smooth, and grey, with a long, pointed mouth"
+        }
+    ]
+}

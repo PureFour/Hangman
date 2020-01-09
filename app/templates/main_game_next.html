@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+<div class="card-deck">
+    <div class="card">
+      <div class="card-body" >
+        <h3 class="card-title">{{ secret_word.name }}</h3>
+        <p class="card-text">{{ secret_word.description }}</p>
+      </div>
+    </div>
+</div>
+{% endblock %}

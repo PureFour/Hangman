@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="mt-4">HighScore</h1>
+<ul class="list-group w-25">
+    {% for user in users %}
+        {% if loop.index == 1 %}
+            <li class="list-group-item list-group-item-warning"><b>{{ user.email }}</b><span class="badge badge-success float-right">{{ user.score }}</span></li>
+        {% elif loop.index == 2 %}    
+            <li class="list-group-item list-group-item-primary">{{ user.email }}<span class="badge badge-success float-right">{{ user.score }}</span></li>
+        {% elif loop.index == 3 %}        
+            <li class="list-group-item list-group-item-secondary">{{ user.email }}<span class="badge badge-success float-right">{{ user.score }}</span></li> 
+        {% else %}    
+            <li class="list-group-item list-group-item-light"><b>{{ user.email }}</b><span class="badge badge-success float-right">{{ user.score }}</span></li>
+        {% endif %}    
+    {% endfor %}
+</ul>
+{% endblock %}
